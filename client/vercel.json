@@ -1,14 +1,9 @@
 {
-  "version": 2,
-  "functions": {
-    "api/google-proxy.ts": {
-      "runtime": "edge"
-    }
-  },
+  "version": 3,
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "dest": "/src/api/$1.ts"
     }
   ]
 }
