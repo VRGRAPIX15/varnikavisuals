@@ -1,0 +1,408 @@
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/500.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/600.css';
+@import '@fontsource/dm-sans/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Elegant Wedding Gallery Color Palette */
+    --background: 30 25% 98%;
+    --foreground: 20 15% 15%;
+
+    --card: 30 20% 99%;
+    --card-foreground: 20 15% 15%;
+
+    --popover: 30 20% 99%;
+    --popover-foreground: 20 15% 15%;
+
+    /* Deep Burgundy/Wine Primary */
+    --primary: 350 45% 35%;
+    --primary-foreground: 30 25% 98%;
+
+    /* Champagne Gold Secondary */
+    --secondary: 38 35% 90%;
+    --secondary-foreground: 20 15% 25%;
+
+    /* Soft Cream Muted */
+    --muted: 30 20% 94%;
+    --muted-foreground: 20 10% 45%;
+
+    /* Gold Accent */
+    --accent: 38 60% 55%;
+    --accent-foreground: 20 15% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 25% 98%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 350 45% 35%;
+
+    --radius: 0.5rem;
+
+    /* Custom Gallery Colors */
+    --burgundy: 350 45% 35%;
+    --burgundy-light: 350 40% 45%;
+    --burgundy-dark: 350 50% 25%;
+    --champagne: 38 35% 90%;
+    --champagne-dark: 38 30% 80%;
+    --gold: 38 60% 55%;
+    --gold-light: 38 50% 70%;
+    --cream: 30 25% 96%;
+    --warm-gray: 20 10% 60%;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(20 15% 15% / 0.08);
+    --shadow-medium: 0 8px 30px -8px hsl(20 15% 15% / 0.12);
+    --shadow-large: 0 20px 50px -15px hsl(20 15% 15% / 0.15);
+    --shadow-glow: 0 0 40px hsl(38 60% 55% / 0.2);
+
+    /* Sidebar */
+    --sidebar-background: 30 20% 97%;
+    --sidebar-foreground: 20 15% 25%;
+    --sidebar-primary: 350 45% 35%;
+    --sidebar-primary-foreground: 30 25% 98%;
+    --sidebar-accent: 38 35% 92%;
+    --sidebar-accent-foreground: 20 15% 25%;
+    --sidebar-border: 30 15% 90%;
+    --sidebar-ring: 350 45% 35%;
+  }
+
+  .dark {
+    --background: 20 15% 8%;
+    --foreground: 30 20% 95%;
+
+    --card: 20 15% 10%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 20 15% 10%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 350 40% 50%;
+    --primary-foreground: 20 15% 8%;
+
+    --secondary: 20 15% 18%;
+    --secondary-foreground: 30 20% 90%;
+
+    --muted: 20 15% 15%;
+    --muted-foreground: 30 15% 60%;
+
+    --accent: 38 50% 45%;
+    --accent-foreground: 30 20% 95%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 30 20% 95%;
+
+    --border: 20 15% 20%;
+    --input: 20 15% 20%;
+    --ring: 350 40% 50%;
+
+    --burgundy: 350 40% 50%;
+    --burgundy-light: 350 35% 60%;
+    --burgundy-dark: 350 45% 35%;
+    --champagne: 38 25% 25%;
+    --champagne-dark: 38 20% 18%;
+    --gold: 38 50% 45%;
+    --gold-light: 38 40% 55%;
+    --cream: 20 15% 12%;
+    --warm-gray: 20 10% 50%;
+
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
+    --shadow-large: 0 20px 50px -15px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(38 50% 45% / 0.15);
+
+    --sidebar-background: 20 15% 10%;
+    --sidebar-foreground: 30 20% 90%;
+    --sidebar-primary: 350 40% 50%;
+    --sidebar-primary-foreground: 20 15% 8%;
+    --sidebar-accent: 20 15% 15%;
+    --sidebar-accent-foreground: 30 20% 90%;
+    --sidebar-border: 20 15% 18%;
+    --sidebar-ring: 350 40% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Elegant Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-burgundy-light transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-champagne-dark transition-all duration-300;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-muted transition-all duration-300;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-foreground hover:bg-gold-light transition-all duration-300 shadow-glow;
+  }
+
+  /* Card Styles */
+  .card-elegant {
+    @apply bg-card rounded-lg shadow-soft hover:shadow-medium transition-shadow duration-300;
+  }
+
+  .card-photo {
+    @apply relative overflow-hidden rounded-lg bg-muted;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-background/80 backdrop-blur-md;
+  }
+
+  .glass-dark {
+    @apply bg-background/60 backdrop-blur-lg;
+  }
+
+  /* Header Styles */
+  .header-sticky {
+    @apply sticky z-40 bg-background/95 backdrop-blur-sm border-b border-border;
+  }
+
+  /* Masonry Grid */
+  .masonry-grid {
+    display: flex;
+    margin-left: -12px;
+    width: auto;
+  }
+
+  .masonry-grid-column {
+    padding-left: 12px;
+    background-clip: padding-box;
+  }
+
+  /* Scrollbar Styling */
+  .scrollbar-elegant::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-elegant::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  .scrollbar-elegant::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full hover:bg-primary/50;
+  }
+
+  /* Image Skeleton Loading */
+  .skeleton-shimmer {
+    @apply animate-pulse bg-gradient-to-r from-muted via-muted/50 to-muted;
+    background-size: 200% 100%;
+  }
+
+  /* Action Icon Button */
+  .action-icon {
+    @apply p-2 rounded-full bg-background/90 backdrop-blur-sm text-foreground/70 hover:text-primary hover:bg-background transition-all duration-200 shadow-soft;
+  }
+
+  .action-icon-active {
+    @apply text-primary bg-primary/10;
+  }
+
+  /* Selection Indicator */
+  .selection-badge {
+    @apply absolute top-2 right-2 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-semibold shadow-medium;
+  }
+
+  /* Tooltip */
+  .tooltip-elegant {
+    @apply px-3 py-1.5 bg-foreground text-background text-sm rounded-md shadow-medium;
+  }
+}
+
+@layer utilities {
+  /* Custom Colors as Utilities */
+  .bg-burgundy {
+    background-color: hsl(var(--burgundy));
+  }
+  .bg-burgundy-light {
+    background-color: hsl(var(--burgundy-light));
+  }
+  .bg-burgundy-dark {
+    background-color: hsl(var(--burgundy-dark));
+  }
+  .bg-champagne {
+    background-color: hsl(var(--champagne));
+  }
+  .bg-champagne-dark {
+    background-color: hsl(var(--champagne-dark));
+  }
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  .bg-gold-light {
+    background-color: hsl(var(--gold-light));
+  }
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .text-burgundy {
+    color: hsl(var(--burgundy));
+  }
+  .text-burgundy-light {
+    color: hsl(var(--burgundy-light));
+  }
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  .text-warm-gray {
+    color: hsl(var(--warm-gray));
+  }
+
+  .border-burgundy {
+    border-color: hsl(var(--burgundy));
+  }
+  .border-champagne {
+    border-color: hsl(var(--champagne));
+  }
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+
+  /* Shadows */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-glow;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-[1.02];
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Lightbox Styles */
+.lightbox-overlay {
+  @apply fixed inset-0 z-50 bg-foreground/95 backdrop-blur-sm;
+}
+
+.lightbox-image {
+  @apply max-w-full max-h-full object-contain;
+}
+
+/* Bottom Sheet */
+.bottom-sheet {
+  @apply fixed bottom-0 left-0 right-0 z-50 bg-card rounded-t-2xl shadow-large;
+  max-height: 80vh;
+}
+
+.bottom-sheet-handle {
+  @apply w-12 h-1.5 bg-muted-foreground/30 rounded-full mx-auto my-3;
+}
