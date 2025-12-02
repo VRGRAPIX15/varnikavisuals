@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "functions": {
+    "client/api/google-proxy.ts": {
+      "runtime": "edge"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "client/api/google-proxy.ts"
+    }
+  ],
+  "ignoreCommand": "echo 'ignore admin and backend'",
+  "includeFiles": ["client/**"]
+}
